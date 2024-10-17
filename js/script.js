@@ -94,7 +94,14 @@ function showModal(user) {
                 </div>
     `;
     document.body.appendChild(modalContainer);
-    document.body.insertAdjacentElement('beforeend', modalHTML);//will insert before end of modal container div
+    //document.body.insertAdjacentElement('beforeend', modalHTML);//will insert before end of modal container div
+   
+    const closeBtn = document.querySelector('.modal-close-btn');
+    closeBtn.addEventListener('click', () => { 
+        //showModal.remove();
+         //console.log()
+    //const modal = document.querySelector('.modal-container')  
+});
     
    closeBtn.addEventListener('click', () => {
         modalContainer.remove();
@@ -104,14 +111,6 @@ function showModal(user) {
   }
 //CLOSE MODAL 
 
-function closeModal() {
-    const closeBtn = document.querySelector('.modal-close-btn');
-    closeBtn.addEventListener('click', () => { 
-        showModal.remove();
-    //const modal = document.querySelector('.modal-container');
-    
-});
-}
 getUsers();
 
 /*
