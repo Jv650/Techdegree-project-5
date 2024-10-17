@@ -21,7 +21,7 @@ async function getUsers() {
     );
     const data = await response.json();
     displayUsers(data.results);
-    //users = data.results; //maybe add .results
+    users = data.results; //maybe add .results
 } catch (error) {
     console.error('Error fetching results:', error);
   }
@@ -70,13 +70,14 @@ gallery.addEventListener('click',
         //console.log(userCard);
         const userEmail = userCard.querySelector('.card-text').textContent;
         const user = users.find(
-            (user) => user.name.common === UserEmail
+            (user) => user.email === userEmail
         );
         showModal(user);
 });
 function showModal(user) {
-    //modalContainer.innerHTML =
-        const modalHTML = `
+    const modalContainer = document.createElement('div');
+    modalContainer.innerHTML =
+         `
          <div class="modal-container">
                 <div class="modal">
                     <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
@@ -95,21 +96,22 @@ function showModal(user) {
     document.body.appendChild(modalContainer);
     document.body.insertAdjacentElement('beforeend', modalHTML);//will insert before end of modal container div
     
-    closeBtn.addEventListener('click', () => {
+   closeBtn.addEventListener('click', () => {
         modalContainer.remove();
     });
 
 
   }
-//CLOSE MODAL
-/*function closeModal() {
-    .addEventListener('click', (event) => { 
-    const modal = document.querySelector('.modal-container');
-    if (event.target === modal){
-        modal.remove();
-    }
+//CLOSE MODAL 
+
+function closeModal() {
+    const closeBtn = document.querySelector('.modal-close-btn');
+    closeBtn.addEventListener('click', () => { 
+        showModal.remove();
+    //const modal = document.querySelector('.modal-container');
+    
 });
-}*/
+}
 getUsers();
 
 /*
