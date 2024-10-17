@@ -5,7 +5,6 @@
     -Email
     -City or location
 */
-
 let users = [];
 const modalContainer = document.querySelector('.modal-container');
 const gallery = document.querySelector('.gallery');
@@ -63,6 +62,9 @@ function displayUsers(users) {
 }
 
 //EVENT LISTENER TO DISPLAY MODAL
+
+//modalContainer.addEventListener('click', function() {
+//});
 function showModal(user) {
     //modalContainer.innerHTML =
         const modalHTML = `
@@ -87,13 +89,17 @@ function showModal(user) {
     closeBtn.addEventListener('click', () => {
         modalContainer.remove();
     });
-}
+
+
+  }
 //CLOSE MODAL
 function closeModal() {
+    .addEventListener('click', (event) => { 
     const modal = document.querySelector('.modal-container');
-    if(modal){
-    modal.remove();
+    if (event.target === modal){
+        modal.remove();
     }
+});
 }
 getUsers();
 
