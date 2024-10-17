@@ -27,9 +27,9 @@ async function getUsers() {
   }
 }
 
-container.addEventListener('click', (event) => {
+/*container.addEventListener('click', (event) => {
     const userCard = event.target.closest('.card')
-});
+});*/
 /*
 const userName = userCard.dataset.name;
 const user = users.find(
@@ -63,8 +63,17 @@ function displayUsers(users) {
 
 //EVENT LISTENER TO DISPLAY MODAL
 
-//modalContainer.addEventListener('click', function() {
-//});
+gallery.addEventListener('click', 
+    function(event) {
+        const userCard = event.target.closest('.card')
+        if(!userCard) return;
+        //console.log(userCard);
+        const userEmail = userCard.querySelector('.card-text').textContent;
+        const user = users.find(
+            (user) => user.name.common === UserEmail
+        );
+        showModal(user);
+});
 function showModal(user) {
     //modalContainer.innerHTML =
         const modalHTML = `
@@ -93,14 +102,14 @@ function showModal(user) {
 
   }
 //CLOSE MODAL
-function closeModal() {
+/*function closeModal() {
     .addEventListener('click', (event) => { 
     const modal = document.querySelector('.modal-container');
     if (event.target === modal){
         modal.remove();
     }
 });
-}
+}*/
 getUsers();
 
 /*
