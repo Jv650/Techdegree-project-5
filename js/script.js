@@ -88,7 +88,7 @@ function showModal(user) {
                         <p class="modal-text cap">${user.location.city}, ${user.location.state} </p>
                         <hr>
                         <p class="modal-text">${user.phone}</p>
-                        <p class="modal-text">${user.location.street.number}</p>
+                        <p class="modal-text">${user.location.street.number} ${user.location.street.name}, ${user.location.city}, ${user.location.state}, ${user.location.postcode}</p>
                         <p class="modal-text">Birthday: ${user.dob.date}</p>
                     </div>
                 </div>
